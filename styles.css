@@ -1,5 +1,97 @@
-body {
-  background: #2d00ff; /* Azul eléctrico */
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
+    body {
+  background: #3c19ff;
   margin: 0;
   min-height: 100vh;
+  font-family: 'Montserrat', Arial Black, Impact, sans-serif;
+  color: #fff;
+  overflow-x: hidden;
 }
+.big-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  right: 3vw;
+  text-align: right;
+}
+.big-list li {
+  font-weight: 900;
+  color: #000;
+  font-size: 7vw;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin: 0 0 2vw 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  /* Para que las letras se alineen a la derecha */
+}
+.big-list li span {
+  display: inline-block;
+  /* El scale se aplicará dinámicamente con JS */
+  transform-origin: bottom left;
+  transition: transform 0.2s;
+}
+
+    /* Esquina inferior izquierda */
+    .corner-info {
+      position: absolute;
+      bottom: 35px;
+      left: 40px;
+      z-index: 5;
+      font-size: 1.1vw;
+      color: #fff;
+      letter-spacing: 0.04em;
+    }
+    .corner-info .brand {
+      font-size: 2.5vw;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 1.5vw;
+      display: block;
+      letter-spacing: -0.04em;
+    }
+    .corner-info .details {
+      margin-top: 2vw;
+      display: flex;
+      gap: 4vw;
+      font-size: 1vw;
+    }
+    .corner-info .details div {
+      margin-bottom: 0.4vw;
+    }
+    /* Esquina inferior derecha */
+    .corner-menu {
+      position: absolute;
+      bottom: 35px;
+      right: 40px;
+      text-align: right;
+      z-index: 5;
+      font-size: 1vw;
+      color: #fff;
+    }
+    .corner-menu .links {
+      margin-bottom: 0.7vw;
+    }
+    .corner-menu a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.2vw;
+      transition: color 0.2s;
+    }
+    .corner-menu a:hover {
+      color: #000;
+    }
+  
+    /* Responsive */
+    @media (max-width: 900px) {
+      .main-content { width: 100vw; }
+      .big-list li { font-size: 12vw; }
+      .corner-info, .corner-menu { font-size: 2vw; left: 10px; right: 10px; }
+      .corner-info .brand { font-size: 4vw; }
+    }
