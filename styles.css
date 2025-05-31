@@ -1,4 +1,4 @@
- body {
+body {
   margin: 0;
   background: linear-gradient(to left, rgb(0, 225, 255), rgb(76, 3, 247));
   font-family: 'Anton', sans-serif;
@@ -11,19 +11,13 @@
   overflow-x: hidden;
 }
 
-nav {
-  perspective: 1000px; 
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-
+/* === Lista con inclinación fija === */
 .big-list {
   list-style: none;
   margin: 0;
-  padding: 0px 0 0 700px; /* Ajusta la posición para que el primer li se vea */
-  transform: rotateX(15deg) rotateY(-25deg); 
+  padding: 0 0 0 700px;
   transform-style: preserve-3d;
+  animation: curtainDown 1.5s cubic-bezier(.77, 0, .18, 1) forwards;
 }
 
 .big-list li {
@@ -35,21 +29,39 @@ nav {
   margin: 20px 0;
   line-height: 0.85;
   transition: all 0.5s ease;
-  transform-origin: right;
-  transform: perspective(800px) rotateY(0deg);
+  transform: rotateX(15deg) rotateY(-25deg); /* inclinación inicial */
+  transform-style: preserve-3d;
+  transform-origin: right center; /* EJE A LA DERECHA */
 }
-.big-list li:first-child{
+.big-list li:first-child {
   margin-top: 200px;
 }
+
 .big-list li:hover {
   color: transparent;
   -webkit-text-stroke: 1.5px rgb(12, 4, 17);
   cursor: pointer;
-  transform: rotateX(-3deg) rotateY(5deg); 
-  transform-style: preserve-3d;
+  transform: rotateX(10deg) rotateY(-10deg); /* Giro hacia el usuario */
+  transform-origin: right center; /* Mantener el eje de giro en la derecha */
 }
 
-/* Esquina inferior izquierda */
+/* === Enlaces dentro de li === */
+.big-list li a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  width: 100%;
+  transition: none;
+  -webkit-text-stroke: 0;
+}
+
+.big-list li a:hover {
+  color: inherit;
+  -webkit-text-stroke: inherit;
+  transform: none;
+}
+
+/* === Branding esquina inferior izquierda === */
 .corner-info {
   position: fixed;
   top: 600px;
@@ -80,7 +92,6 @@ nav {
   margin-bottom: 0.4vw;
 }
 
-/* Menú esquina inferior derecha */
 .corner-menu {
   position: absolute;
   bottom: 35px;
@@ -95,60 +106,50 @@ nav {
   font-size: 4vw;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .main-content { width: 100vw; }
-  .big-list li { font-size: 12vw; }
-  .corner-info, .corner-menu { font-size: 2vw; left: 10px; right: 10px; }
-  .corner-info .brand { font-size: 4vw; }
-}
-a{
-  text-decoration: none;
-  color: black;
-}
-a:hover{
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgb(12, 4, 17);
-  cursor: pointer;
-  transform: rotateX(-3deg) rotateY(5deg); 
-  transform-style: preserve-3d;
-}
+/* === Responsive media queries === */
 @media (max-width: 900px) {
   .main-content {
     width: 100vw;
-    padding-left: 20px; /* Reduce el padding para evitar desbordamiento */
-    overflow-x: auto; /* Permite scroll horizontal si el contenido se sale */
+    padding-left: 20px;
+    overflow-x: auto;
   }
+
   .big-list {
-    padding-left: 50px; /* Reduce el padding para que la lista se vea */
-    transform: rotateX(10deg) rotateY(-15deg); /* Ajusta la rotación */
+    padding-left: 50px;
+    transform: rotateX(15deg) rotateY(-25deg);
+    animation: curtainDown 1.5s cubic-bezier(.77, 0, .18, 1) forwards;
   }
+
   .big-list li {
-    font-size: 8vw; /* Reduce el tamaño de fuente */
-    padding-left: 50px; /* Reduce el padding */
+    font-size: 8vw;
+    padding-left: 50px;
     margin: 15px 0;
   }
+
   .big-list li:first-child {
-    margin-top: 100px; /* Reduce el margen superior */
+    margin-top: 100px;
   }
 }
 
 @media (max-width: 500px) {
+  .main-content {
+    padding-left: 10px;
+  }
+
+  .big-list {
+    padding-left: 20px;
+    transform: rotateX(15deg) rotateY(-25deg);
+    animation: curtainDown 1.5s cubic-bezier(.77, 0, .18, 1) forwards;
+  }
+
   .big-list li {
     font-size: 6vw;
     padding-left: 30px;
     margin: 10px 0;
   }
-  .big-list {
-    padding-left: 20px;
-    transform: rotateX(8deg) rotateY(-10deg); /* Ajusta aún más la rotación */
-  }
-  .main-content {
-    padding-left: 10px;
-  }
 }
 
-/* Animación de cortina descendente */
+/* === Animación de entrada descendente === */
 @keyframes curtainDown {
   0% {
     transform: rotateX(15deg) rotateY(-25deg) translateY(-100vh);
@@ -161,59 +162,5 @@ a:hover{
   100% {
     transform: rotateX(15deg) rotateY(-25deg) translateY(0);
     opacity: 1;
-  }
-}
-
-/* Aplica la animación a la lista */
-.big-list {
-  list-style: none;
-  margin: 0;
-  padding: 0 0 0 700px;
-  transform: rotateX(15deg) rotateY(-25deg);
-  transform-style: preserve-3d;
-  animation: curtainDown 1.5s cubic-bezier(.77,0,.18,1) forwards;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .big-list {
-    padding-left: 50px;
-    transform: rotateX(10deg) rotateY(-15deg);
-    animation: curtainDown 1.5s cubic-bezier(.77,0,.18,1) forwards;
-  }
-  @keyframes curtainDown {
-    0% {
-      transform: rotateX(10deg) rotateY(-15deg) translateY(-100vh);
-      opacity: 0;
-    }
-    80% {
-      transform: rotateX(10deg) rotateY(-15deg) translateY(30px);
-      opacity: 1;
-    }
-    100% {
-      transform: rotateX(10deg) rotateY(-15deg) translateY(0);
-      opacity: 1;
-    }
-  }
-}
-@media (max-width: 500px) {
-  .big-list {
-    padding-left: 20px;
-    transform: rotateX(8deg) rotateY(-10deg);
-    animation: curtainDown 1.5s cubic-bezier(.77,0,.18,1) forwards;
-  }
-  @keyframes curtainDown {
-    0% {
-      transform: rotateX(8deg) rotateY(-10deg) translateY(-100vh);
-      opacity: 0;
-    }
-    80% {
-      transform: rotateX(8deg) rotateY(-10deg) translateY(30px);
-      opacity: 1;
-    }
-    100% {
-      transform: rotateX(8deg) rotateY(-10deg) translateY(0);
-      opacity: 1;
-    }
   }
 }
