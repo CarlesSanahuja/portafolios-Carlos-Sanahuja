@@ -29,9 +29,10 @@ body {
   margin: 20px 0;
   line-height: 0.85;
   transition: all 0.5s ease;
-  transform: rotateX(15deg) rotateY(-25deg); /* inclinación inicial */
+  transform: rotateX(12deg) rotateY(-20deg); /* inclinación inicial */
   transform-style: preserve-3d;
   transform-origin: right center; /* EJE A LA DERECHA */
+  margin-bottom: 40px;
 }
 .big-list li:first-child {
   margin-top: 200px;
