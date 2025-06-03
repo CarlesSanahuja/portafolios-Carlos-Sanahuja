@@ -82,6 +82,11 @@ body {
   letter-spacing: -0.04em;
 }
 
+.corner-info .brand a:hover{
+  color: transparent;
+  -webkit-text-stroke: 1px white; /* contorno blanco */
+}
+
 .corner-info .details {
   margin-top: 2vw;
   display: flex;
@@ -107,6 +112,10 @@ body {
   font-size: 4vw;
 }
 
+a{
+  text-decoration: none;
+ color: #fff;
+}
 /* === Responsive media queries === */
 @media (max-width: 900px) {
   .main-content {
