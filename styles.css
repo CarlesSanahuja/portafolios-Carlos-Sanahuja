@@ -70,7 +70,7 @@ body {
   z-index: 5;
   font-size: 1.1vw;
   color: #fff;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.04em; 
 }
 
 .corner-info .brand {
@@ -115,6 +115,13 @@ body {
 a{
   text-decoration: none;
  color: #fff;
+}
+
+#curriculum{
+  position: absolute;
+  top: 35%;
+  left: 20%;
+  z-index: 99;
 }
 /* === Responsive media queries === */
 @media (max-width: 900px) {
@@ -174,3 +181,4 @@ a{
     opacity: 1;
   }
 }
+
