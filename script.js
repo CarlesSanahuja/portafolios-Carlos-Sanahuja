@@ -17,12 +17,14 @@ function formulario() {
     nombre.style.margin = "5%";
 
     document.getElementById("formulario").innerHTML = `
-        <form action="https://formsubmit.co/carlinhos78.csc@gmail.com" method="POST">
+        <form action="https://formsubmit.co/carlinhos78.csc@gmail.com" method="POST" class="formulario-contacto aparece-desde-abajo">
+            <h2>Contacto</h2>
             <input type="text" name="nombre" placeholder="Tu nombre" required>
-            <input type="email" name="email" placeholder="Tu correo" required>
-            <textarea name="mensaje" placeholder="Escribe tu mensaje" required></textarea>
-            <button type="submit">Enviar</button>
+            <input type="email" name="email" placeholder="Tu correo electrónico" required>
+            <textarea name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            <button type="submit">Enviar mensaje</button>
         </form>
+
     `;
 
     let mainContent = document.querySelector(".main-content");

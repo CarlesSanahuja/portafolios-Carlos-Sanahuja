@@ -195,4 +195,63 @@ a{
 .aparece-desde-abajo {
   animation: subirSuave 0.8s ease-out forwards;
 }
+/* Formulario */
+.formulario-contacto {
+  max-width: 500px;
+  width: 90%;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #03488d;
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Asegura que todo esté centrado horizontalmente */
+  gap: 1rem;
+  box-sizing: border-box;
+}
 
+.formulario-contacto h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  text-align: center;
+  color: white;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+  width: 100%; /* Toma todo el ancho del contenedor */
+  max-width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #333;
+  color: white;
+  font-size: 1rem;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.formulario-contacto input::placeholder,
+.formulario-contacto textarea::placeholder {
+  color: #aaa;
+}
+
+.formulario-contacto button {
+  width: 100%;
+  padding: 0.9rem;
+  background-color: #05dcfd;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.formulario-contacto button:hover {
+  background-color: #00c9a7;
+}
