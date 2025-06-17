@@ -2,6 +2,9 @@ function historia(){
     let nombre = document.querySelector(".corner-info");
     nombre.style.position ="relative"
     nombre.style.margin = "5%"
+    let cara = document.querySelector(".cara");
+    cara.style.margin = "10%";
+    cara.style.width = "10%";
     document.getElementById("curriculum").innerHTML=' <div class="aparece-desde-abajo"><img src="images/Carlos_Curriculum.jpg" alt="" width="80%" ><a href="./index.html"><img src="images/x.png" alt="" width="50"> </a>'
     let mainContent = document.querySelector(".main-content");
     mainContent.style.display = "none";
@@ -15,6 +18,8 @@ function formulario() {
     let nombre = document.querySelector(".corner-info");
     nombre.style.position = "relative";
     nombre.style.margin = "5%";
+    let cara = document.querySelector(".cara");
+    cara.style.margin = "10%";
 
     document.getElementById("formulario").innerHTML = `
         <form action="https://formsubmit.co/carlinhos78.csc@gmail.com" method="POST" class="formulario-contacto aparece-desde-abajo">
